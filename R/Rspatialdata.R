@@ -1,10 +1,10 @@
-#' Sample datasets to use for AWRA 2020 R spatial workshop
+#' Sample datasets to use for the 2021 R spatial workshop
 #'
 #' This package contains sample data to use for
-#' demonstration purposes for the AWRA 2020 R spatial workshop.
+#' demonstration purposes for the 2021 R spatial workshop.
 #' @docType package
-#' @name awra2020spatial
-#' @aliases awra2020spatial awra2020spatial-package
+#' @name Rspatialdata
+#' @aliases Rspatialdata Rspatialdata-package
 NULL
 
 #' Austin bike paths - a dataset of bicycle transportation
