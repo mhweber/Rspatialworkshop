@@ -25,5 +25,18 @@ NULL
 #' PNW states - Pacific Northwest states in custom Alber projection
 #'
 #' @source USAboundaries package
-#' @format An sf data frame of Oregon, Idaho, and Washington
+#' @format An sf data
 "pnw"
+
+#' CraterLake - Crater Lake National Park boundary
+#'
+#' @source \url{https://opendata.arcgis.com/datasets/c8d60ffcbf5c4030a17762fe10e81c6a_2.geojson}
+#' @format An sf data frame
+"CraterLake"
+
+#' elevation - srtm 90 meter elevation data for area
+#'             around Crater Lake National Park
+#'
+#' @source \url{https://srtm.csi.cgiar.org/wp-content/uploads/files/srtm_5x5/TIFF/srtm_12_04.zip}
+#' @format A spatRaster object
+"elevation"
