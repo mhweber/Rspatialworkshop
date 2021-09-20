@@ -20,7 +20,14 @@ url <- "https://services.arcgis.com/0L95CJ0VTaxqcmED/arcgis/rest/services/TRANSP
 bike_paths <- esri2sf(url)
 plot(bike_paths$geoms)
 
-## srtm
+nat_parks <- read_sf('https://opendata.arcgis.com/datasets/c8d60ffcbf5c4030a17762fe10e81c6a_2.geojson')
+CraterLake <- nat_parks %>%
+  dplyr::filter(UNIT_NAME=='Crater Lake National Park')
+new_bb = c(-122.53052, 42.63396,
+           -121.81091, 43.10499)
+CraterLake <- st_crop(CraterLake, new_bb)
+
+# srtm
 "inst/srtm_12_04.zip" %>%
   # download_srtm(.) %>%
   preprocess_srtm(., CraterLake)
@@ -32,12 +39,6 @@ pnw <- states %>%
   dplyr::filter(name %in% c('Oregon','Washington','Idaho')) %>%
   st_transform('+proj=aea +lat_1=41 +lat_2=47 +lat_0=44 +lon_0=-120 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs')
 
-nat_parks <- read_sf('https://opendata.arcgis.com/datasets/c8d60ffcbf5c4030a17762fe10e81c6a_2.geojson')
-CraterLake <- nat_parks %>%
-  dplyr::filter(UNIT_NAME=='Crater Lake National Park')
-new_bb = c(-122.53052, 42.63396,
-           -121.81091, 43.10499)
-CraterLake <- st_crop(CraterLake, new_bb)
 
 usethis::use_data(CraterLake, overwrite=TRUE)
 usethis::use_data(parks)

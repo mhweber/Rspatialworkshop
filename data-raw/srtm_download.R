@@ -7,9 +7,8 @@ download_srtm <- function(destination_filename){
 preprocess_srtm <- function(filename, border_vector){
   dir_name <- dirname(filename)
   unzip(filename, exdir = dir_name)
-  vector_obj <- st_read(border_vector)
   vector_extent <- vector_obj %>%
-    st_buffer(., 1000) %>%
+    st_buffer(., 10000) %>%
     st_transform(., crs = 4326)
 
   paste0(dir_name, "/srtm_12_04.tif") %>%
