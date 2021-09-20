@@ -29,7 +29,7 @@ CraterLake <- st_crop(CraterLake, new_bb)
 
 # srtm
 "inst/srtm_12_04.zip" %>%
-  # download_srtm(.) %>%
+  download_srtm(.) %>%
   preprocess_srtm(., CraterLake)
 elevation <- rast('inst/extdata/elevation.tif')
 
